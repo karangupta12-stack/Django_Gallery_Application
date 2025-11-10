@@ -12,6 +12,7 @@ db.sqlite3
 
 # User-uploaded files (IMPORTANT)
 /media/
+/user_photos/
 
 # Static files (Collected by collectstatic)
 /staticfiles/
