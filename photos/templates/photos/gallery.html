@@ -26,7 +26,7 @@
        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <select name="album_select" class="album-select">
-                <option value="">-- Add to Album (Optional) --</option>
+                <option value="">Add to Album (Optional)</option>
                 {% for album in albums %}
                     <option value="{{ album.id }}">{{ album.title }}</option>
                 {% endfor %}
@@ -35,7 +35,7 @@
             <!-- YAHAN CHANGES HAIN -->
             <input type="file" name="media_files" accept="image/*,video/*" multiple required>
             
-            <button type="submit">Upload Media</button>
+            <button type="submit1">Upload Media</button>
         </form>
         
 
@@ -55,9 +55,9 @@
                                 <!-- Favourite Button Form -->
                                 <form method="post" action="{% url 'toggle-favourite' photo.id %}" class="favourite-form">
                                     {% csrf_token %}
-                                    <button type="submit" class="favourite-btn {% if photo.is_favourite %}active{% endif %}" title="Favourite">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                                    </button>
+                                     <button type="submit" class="favourite-btn {% if photo.is_favourite %}active{% endif %}">
+                                            ❤
+                                        </button>
                                 </form>
 
                                 <!-- Delete Button Form -->

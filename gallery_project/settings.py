@@ -112,3 +112,4 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Media files (Local storage)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+

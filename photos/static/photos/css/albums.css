@@ -1,207 +1,361 @@
-/* Styling for the main Collections dashboard */
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.feature-card {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 500;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.feature-card:hover {
-    background-color: #e9ecef;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.section-divider {
-    border: 0;
-    height: 1px;
-    background-color: #e9ecef;
-    margin: 40px 0;
-}
-
-/* Styling for the list of albums */
-.album-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.album-card {
-    text-decoration: none;
-    color: #333;
-}
-
-.album-thumbnail {
-    width: 100%;
-    aspect-ratio: 1;  /* Makes it square */
-    background-color: #3c4043;
-    position: relative;
-    overflow: hidden;  /* Prevents image overflow */
-}
-
-.album-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Crops the image to fit the container */
-    display: block;
-}
-
-.album-thumbnail::before {
-    content: "Cover"; /* Placeholder text */
-}
-
-.album-title {
-    font-weight: 600;
-    text-align: center;
-}
-
-/* Styling for the album detail page header */
-.album-header {
-    margin-bottom: 30px;
-}
-
-.back-link {
-    display: inline-block;
-    margin-bottom: 15px;
-    color: #0d6efd;
-    text-decoration: none;
-    font-weight: 500;
-}
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* START: New CSS for the Create Album Form */
-.create-album-container {
-    margin-bottom: 30px;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #dee2e6;
-}
-
-.create-album-form {
-    display: flex;
-    gap: 10px;
-}
-
-.create-album-form input[type="text"] {
-    flex-grow: 1; /* Allows the input to take up available space */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.create-album-form button {
-    background-color: #0d6efd; /* Blue */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 24px;
-    font-weight: bold;
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    line-height: 45px; /* Centers the '+' vertically */
-    transition: background-color 0.2s ease;
-}
-
-.create-album-form button:hover {
-    background-color: #0b5ed7;
-}
-
-
-/* New wrapper to help with positioning */
-.album-card-wrapper {
-    position: relative;
-}
-
-/* New CSS for the album delete form and button */
-.album-delete-form {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.2s ease-in-out;
-}
-
-/* Show the delete button on hover */
-.album-card-wrapper:hover .album-delete-form {
-    opacity: 1;
-}
-
-.album-delete-btn {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    font-size: 20px;
-    line-height: 28px;
-    cursor: pointer;
-}
+/* ==========================================================================
+   ALBUMS.CSS - Album Specific Styles
+   ========================================================================== */
 
 .collections-header {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Adds space between the icon and the title */
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
-/* We need to remove the margin from the h1 since the header now handles it */
-.collections-header h1 {
-    margin-bottom: 0;
-}
-
-/* Styling the link that contains the icon */
 .home-link-icon {
-    display: inline-flex;
-    padding: 8px;
-    border-radius: 50%; /* Makes the hover background circular */
-    transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-white);
+  border-radius: 50%;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
 }
 
 .home-link-icon:hover {
-    background-color: #e9ecef; /* Light gray background on hover */
+  background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-/* Styling the SVG icon itself */
+.home-link-icon:hover svg {
+  stroke: white;
+}
+
 .home-link-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: #555; /* Icon color */
+  width: 20px;
+  height: 20px;
+  stroke: var(--text-dark);
+  transition: var(--transition);
 }
 
-/* ==========================================================================
-   NEW: Search Page Styles
-   ========================================================================== */
-.search-form-container {
-    margin-bottom: 2rem;
+/* Feature Grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
 }
 
-.search-form-container form {
-    display: flex;
-    gap: 1rem;
-    max-width: 500px;
+.feature-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  padding: 24px 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
 }
 
-.date-picker {
-    flex-grow: 1;
-    padding: 0.75rem;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    font-size: 1rem;
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), #7c3aed);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover {
+  background: var(--bg-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  color: var(--primary);
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 40px 0;
+}
+
+/* Create Album */
+.create-album-container {
+  background: var(--bg-white);
+  padding: 25px;
+  border-radius: var(--radius);
+  border: 2px dashed var(--border);
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.create-album-container:hover {
+  border-color: var(--primary);
+  background: var(--bg-light);
+}
+
+.create-album-form {
+  display: flex;
+  gap: 12px;
+}
+
+.create-album-form input[type="text"] {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+  background: var(--bg-light);
+}
+
+.create-album-form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.create-album-form button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 600;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-album-form button:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+/* Album Grid */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.album-card-wrapper {
+  position: relative;
+  animation: scaleIn 0.4s ease;
+}
+
+.album-card {
+  text-decoration: none;
+  color: var(--text-dark);
+  display: block;
+  transition: var(--transition);
+}
+
+.album-thumbnail {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.album-card:hover .album-thumbnail {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.album-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.album-card:hover .album-thumbnail img {
+  transform: scale(1.08);
+}
+
+.album-thumbnail-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+}
+
+.album-thumbnail-empty span {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.album-title {
+  font-weight: 600;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.album-card:hover .album-title {
+  color: var(--primary);
+}
+
+.album-delete-form {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.album-card-wrapper:hover .album-delete-form {
+  opacity: 1;
+}
+
+.album-delete-btn {
+  background: rgba(239, 68, 68, 0.95);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+
+.album-delete-btn:hover {
+  background: var(--danger);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Album Header */
+.album-header {
+  margin-bottom: 30px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 15px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.back-link:hover {
+  background: var(--bg-light);
+  transform: translateX(-4px);
+}
+
+/* Upload Form */
+.upload-form {
+  background: var(--bg-white);
+  padding: 25px;
+  border-radius: var(--radius);
+  border: 2px dashed var(--border);
+  margin-bottom: 30px;
+  transition: var(--transition);
+}
+
+.upload-form:hover {
+  border-color: var(--primary);
+  background: var(--bg-light);
+}
+
+.upload-form form {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .feature-card {
+    padding: 18px 12px;
+    font-size: 0.875rem;
+  }
+  
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .create-album-container {
+    padding: 15px;
+  }
+  
+  .create-album-form {
+    flex-direction: column;
+  }
+  
+  .create-album-form button {
+    width: 100%;
+    height: 48px;
+  }
+  
+  .upload-form form {
+    flex-direction: column;
+  }
+} 
